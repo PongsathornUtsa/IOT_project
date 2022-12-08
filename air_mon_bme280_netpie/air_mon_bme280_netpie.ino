@@ -1,3 +1,4 @@
+//esp8266-NodeMCU 1.0 (ESP-12E Module)
 #include <ArduinoJson.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
