@@ -11,7 +11,7 @@
 ## Project Description
 1. Monitoring Temperature, Humidity, Pressure, PM1, PM2.5, and PM10
 2. Use Netpie IOT cloud platform, Netpie freeboard
-3. Commands for EEPROM, Wi-fi, MQTT
+3. Commands for EEPROM, Wi-fi, MQTT, OLED
 
 ## Hardware & Sodtware
 ### Hardware
@@ -22,3 +22,7 @@
 5. I upgraded my project with esp32 for Multitsaking
 ### Software
 1. Arduino IDE
+
+## Schematics
+![My Image](schematic.jpg)
+
