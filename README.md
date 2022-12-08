@@ -21,7 +21,8 @@
 4. OLED(ssd1306)
 5. I upgraded my project with esp32 for Multitsaking
 ### Software
-1. Arduino IDE
+1. [Arduino IDE link](https://www.arduino.cc/en/software)
+2. [Netpie2020 link](https://netpie.io/)
 
 ## Schematics
 ![My Image](pics/schematic.jpg)
