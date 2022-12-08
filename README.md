@@ -24,8 +24,10 @@
 1. [Arduino IDE link](https://www.arduino.cc/en/software)
 2. [Netpie2020 link](https://netpie.io/)
 
-## Schematics
+## How to use the code
+
+### Schematics
 ![My Image](pics/schematic.jpg)
 
-## Freeboard
+### Freeboard
 ![My Image](pics/freeboard_example.png)
