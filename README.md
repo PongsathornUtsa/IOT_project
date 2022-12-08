@@ -40,3 +40,4 @@
 
 ## Wifi Portal (hold rst button for 5 seconds)
 ![My Image](pics/wifi_portal.jpg)
+<p/> after you click save button the data will be save. the board will connect to Wi-fi automatically
