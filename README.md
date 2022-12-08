@@ -38,5 +38,5 @@
 3. password=     # Specify Client password String from Netpie2020  
 4. save          # Save the data to EEPROM                         
 
-## Wifi Portal (hold ret button for 5 seconds)
+## Wifi Portal (hold rst button for 5 seconds)
 ![My Image](pics/wifi_portal.png)
