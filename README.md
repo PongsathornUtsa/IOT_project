@@ -31,3 +31,12 @@
 
 ### Freeboard
 ![My Image](pics/freeboard_example.png)
+
+## Serial Command lists
+1. client=       # Specify Client ID String from Netpie2020        
+2. username=     # Specify Client username String from Netpie2020  
+3. password=     # Specify Client password String from Netpie2020  
+4. save          # Save the data to EEPROM                         
+
+## Wifi Portal (hold ret button for 5 seconds)
+![My Image](pics/wifi_portal.png)
