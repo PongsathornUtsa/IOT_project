@@ -24,5 +24,5 @@
 1. Arduino IDE
 
 ## Schematics
-![My Image](schematic.jpg)
+![My Image](pics/schematic.jpg)
 
