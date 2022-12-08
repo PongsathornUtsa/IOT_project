@@ -24,7 +24,7 @@
 1. [Arduino IDE link](https://www.arduino.cc/en/software)
 2. [Netpie2020 link](https://netpie.io/)
 
-## How to use the code
+## Features
 
 ### Schematics
 ![My Image](pics/schematic.jpg)
