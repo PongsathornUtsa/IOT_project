@@ -26,3 +26,5 @@
 ## Schematics
 ![My Image](pics/schematic.jpg)
 
+## Freeboard
+![My Image](pics/freeboard_example.png)
