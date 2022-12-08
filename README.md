@@ -39,4 +39,4 @@
 4. save          # Save the data to EEPROM                         
 
 ## Wifi Portal (hold rst button for 5 seconds)
-![My Image](pics/wifi_portal.png)
+![My Image](pics/wifi_portal.jpg)
