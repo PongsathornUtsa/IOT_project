@@ -1,0 +1,61 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "humidity": {
+      "operation": {
+        "store": {
+          "ttl": "7d"
+        }
+      },
+      "type": "number"
+    },
+    "temperature": {
+      "operation": {
+        "store": {
+          "ttl": "7d"
+        }
+      },
+      "type": "number"
+    },
+    "pressure": {
+      "operation": {
+        "store": {
+          "ttl": "7d"
+        }
+      },
+      "type": "number"
+    },
+    "pm1": {
+      "operation": {
+        "store": {
+          "ttl": "7d"
+        }
+      },
+      "type": "number"
+    },
+    "pm2_5": {
+      "operation": {
+        "store": {
+          "ttl": "7d"
+        }
+      },
+      "type": "number"
+    },
+    "pm10": {
+      "operation": {
+        "store": {
+          "ttl": "7d"
+        }
+      },
+      "type": "number"
+    },
+    "led": {
+      "operation": {
+        "store": {
+          "ttl": "7d"
+        }
+      },
+      "type": "string"
+    }
+  }
+}
