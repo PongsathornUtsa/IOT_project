@@ -19,7 +19,7 @@
 2. bme280, pms7003 sensors
 3. button, wires, resistor
 4. OLED(ssd1306)
-5. I upgraded my project with esp32 for Multitsaking
+5. I upgraded my project with esp32 for Multitsaking and compute FFT
 ### Software
 1. [Arduino IDE link](https://www.arduino.cc/en/software)
 2. [Netpie2020 link](https://netpie.io/)
