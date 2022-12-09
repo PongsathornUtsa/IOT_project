@@ -1,0 +1,21 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "humidity": {
+      "operation": {
+        "store": {
+          "ttl": "7d"
+        }
+      },
+      "type": "number"
+    },
+    "temperature": {
+      "operation": {
+        "store": {
+          "ttl": "7d"
+        }
+      },
+      "type": "number"
+    }
+  }
+}
