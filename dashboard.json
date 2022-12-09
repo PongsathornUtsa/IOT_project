@@ -1,0 +1,143 @@
+{
+ "version": "application/octet-stream",
+ "allow_edit": true,
+ "plugins": [],
+ "panes": [
+  {
+   "width": 1,
+   "row": {
+    "3": 1
+   },
+   "col": {
+    "3": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Temp",
+      "value": "datasources[\"dataSource\"][\"shadow\"][\"temperature\"]",
+      "units": "C",
+      "min_value": 0,
+      "max_value": 100
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "3": 19
+   },
+   "col": {
+    "3": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "nxpFeedView",
+     "settings": {
+      "title": "pm",
+      "datasource": "datasources[\"dataSource\"][\"feed\"]",
+      "filter": "pm1,pm2_5,pm10",
+      "type": "line",
+      "color": "",
+      "marker": true,
+      "multipleaxis": true,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "3": 1
+   },
+   "col": {
+    "3": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Pressure",
+      "value": "datasources[\"dataSource\"][\"shadow\"][\"pressure\"]",
+      "units": "hPa",
+      "min_value": 0,
+      "max_value": "2000"
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "3": 1
+   },
+   "col": {
+    "3": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Humidity",
+      "value": "datasources[\"dataSource\"][\"shadow\"][\"humidity\"]",
+      "units": "%",
+      "min_value": 0,
+      "max_value": 100
+     }
+    }
+   ]
+  },
+  {
+   "width": 1,
+   "row": {
+    "3": 9
+   },
+   "col": {
+    "3": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "nxpFeedView",
+     "settings": {
+      "title": "bmp280",
+      "datasource": "datasources[\"dataSource\"][\"feed\"]",
+      "filter": "temperature,pressure,humidity",
+      "type": "line",
+      "color": "",
+      "marker": true,
+      "multipleaxis": true,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  }
+ ],
+ "datasources": [
+  {
+   "name": "dataSource",
+   "type": "netpiex_datasource",
+   "settings": {
+    "name": "dataSource",
+    "deviceid": "f216bf79-6d29-4b92-a13a-c8f0d2247531",
+    "devicetoken": "RRf6HVX9pdYoRNrCK4ExT8vVngYLTsHt",
+    "feed": true,
+    "feed_since_value": "2",
+    "feed_since_unit": "hours",
+    "feed_downsampling": "1",
+    "feed_downsampling_unit": "minutes"
+   }
+  }
+ ],
+ "columns": 3,
+ "theme": "default"
+}
