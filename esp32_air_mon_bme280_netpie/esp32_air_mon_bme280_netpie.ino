@@ -14,51 +14,54 @@
 
 #define BUILD_VERSION 20221211  //YYYYMMDD Pongsathorn Utsahawattanasuk 6210554784
 
+//------------------------------Command------------------------------
+String cmdstring;
+String parmstring;
+int sepIndex;
+bool noparm = 0;
+
+//------------------------------WiFi/MQTT setup------------------------------
 const char* mqtt_server = "broker.netpie.io";
 const int mqtt_port = 1883;
 char mqtt_client[40] = "";
 char mqtt_username[40] = "";
 char mqtt_password[40] = "";
 
-String cmdstring;
-String parmstring;
-int sepIndex;
-bool noparm = 0;
-
 WiFiClient espClient;
 PubSubClient client(espClient);
 bool shouldSaveConfig = false;
-
-Adafruit_BME280 bme;  // I2C
+uint8_t macAddr[6];
+//------------------------------BME280------------------------------
+Adafruit_BME280 bme;  
 float temp, pres, hum;
-
+//------------------------------OLED------------------------------
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 #define OLED_RESET -1
 #define SCREEN_ADDRESS 0x3C
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-//eeprom
+//------------------------------eeprom------------------------------
 int eeinitflag = 0;  // EEPROM initialization flag
 const int EEINITCODE = 7;
 #define EE_INIT 200  // write EEINITCODE this address if EEPROM is initialized
-// ---- EEPROM addresses -----------
+//------------------------------EEPROM addresses ------------------------------
 #define EE_MQTTCID_ADDR 0
 #define EE_MQTTUSER_ADDR 40
 #define EE_MQTTPWD_ADDR 80
 bool eesaveflag = 0;
 
-//pms
+//------------------------------pms------------------------------
 PMS pms(Serial1);  //GPIO1,GPIO3
 PMS::DATA data;
 uint8_t pm1, pm2_5, pm10;
-
+//------------------------------timer------------------------------
 uint8_t is_1s = 0, timeOut = 0;
 unsigned int count_1s = 0;
 char msg[100];
 unsigned int send_period = 60;
-
-//btn
+Ticker ticker;
+//------------------------------btn------------------------------
 #define TRIGGER_PIN 0  // NodeMCU FLASH button for start wifi config portal
 unsigned int btn_push_sec = 0, btn_push_loop = 0;
 #define WIFI_CFG_BTN_PUSH_SEC 5
@@ -79,12 +82,7 @@ void configModeCallback(WiFiManager* myWiFiManager) {
   Serial.println(myWiFiManager->getConfigPortalSSID());
 }
 
-Ticker ticker;
-
-//WiFi setup
-uint8_t macAddr[6];
-
-//FreeRtos:
+//------------------------------FreeRtos:/------------------------------
 
 TaskHandle_t Task0 = NULL;
 
@@ -111,20 +109,10 @@ void Task1_code(void* parameter) {  //core 0
   vTaskDelete(NULL);
 }
 
-TaskHandle_t Task2 = NULL;
-
-void Task2_code(void* parameter) {  //core 0
-  for (;;) {
-    oledDisplay(temp, pres, hum, pressed);
-    vTaskDelay(1000);
-  }
-  vTaskDelete(NULL);
-}
-
 void freertos_init(void) {
-  xTaskCreatePinnedToCore(Task0_code, "bme280", 10000, NULL, 3, &Task0, 0);
-  xTaskCreatePinnedToCore(Task1_code, "pms7003", 10000, NULL, 2, &Task1, 0);
-  xTaskCreatePinnedToCore(Task2_code, "oled", 10000, NULL, 1, &Task2, 0);
+  xTaskCreatePinnedToCore(Task0_code, "bme280", 10000, NULL, 3, &Task0, 1);
+  xTaskCreatePinnedToCore(Task1_code, "pms7003", 10000, NULL, 2, &Task1, 1);
+  xTaskCreatePinnedToCore(Task2_code, "oled", 10000, NULL, 1, &Task2, 1);
 }
 
 void setup() {
