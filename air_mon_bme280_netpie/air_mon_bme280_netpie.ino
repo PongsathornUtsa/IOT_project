@@ -15,61 +15,50 @@
 
 #define BUILD_VERSION 20221208  //YYYYMMDD Pongsathorn Utsahawattanasuk 6210554784
 
+//------------------------------WiFi/MQTT setup------------------------------
 const char* mqtt_server = "broker.netpie.io";
 const int mqtt_port = 1883;
 char mqtt_client[40] = "";
 char mqtt_username[40] = "";
 char mqtt_password[40] = "";
 
+WiFiClient espClient;
+PubSubClient client(espClient);
+bool shouldSaveConfig = false;
+uint8_t macAddr[6];
+
+//------------------------------BME280------------------------------
+Adafruit_BME280 bme;  // I2C
+
+//------------------------------Command------------------------------
 String cmdstring;
 String parmstring;
 int sepIndex;
 bool noparm = 0;
-
-WiFiClient espClient;
-PubSubClient client(espClient);
-bool shouldSaveConfig = false;
-
-Adafruit_BME280 bme;  // I2C
-
+//------------------------------PMS7003------------------------------
+SoftwareSerial _serial(D5, D6);  // RX, TX
+pms7003 pms(_serial, Serial);
+//------------------------------OLED------------------------------
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 #define OLED_RESET -1
 #define SCREEN_ADDRESS 0x3C
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-SoftwareSerial _serial(D5, D6);  // RX, TX
-pms7003 pms(_serial, Serial);
-
+//------------------------------timer------------------------------
 uint8_t is_1s = 0, sleep = 0;
 unsigned int count_1s = 0;
 char msg[100];
 unsigned int send_period = 60;
-
-//btn
+Ticker ticker;
+//------------------------------btn------------------------------
 #define TRIGGER_PIN 0  // NodeMCU FLASH button for start wifi config portal
 unsigned int btn_push_sec = 0, btn_push_loop = 0;
 #define WIFI_CFG_BTN_PUSH_SEC 5
 uint8_t pressed = 0;
 boolean buttonState = LOW;
 
-void tick_1s() {
-  is_1s = 1;
-  count_1s++;
-  sleep++;
-}
-void configModeCallback(WiFiManager* myWiFiManager) {
-  Serial.println("# Entered config mode");
-  Serial.println(WiFi.softAPIP());
-  //if you used auto generated SSID, print it
-  Serial.println(myWiFiManager->getConfigPortalSSID());
-}
-
-Ticker ticker;
-
-//WiFi setup
-uint8_t macAddr[6];
-
+//------------------------------eeprom------------------------------
 union {
   struct {
     uint8_t d0 : 1;
@@ -83,6 +72,19 @@ union {
   } bit;
   uint8_t b8;
 } crc = { .b8 = 0 };
+
+void tick_1s() {
+  is_1s = 1;
+  count_1s++;
+  sleep++;
+}
+
+void configModeCallback(WiFiManager* myWiFiManager) {
+  Serial.println("# Entered config mode");
+  Serial.println(WiFi.softAPIP());
+  //if you used auto generated SSID, print it
+  Serial.println(myWiFiManager->getConfigPortalSSID());
+}
 
 void setup() {
   Serial.begin(38400);
