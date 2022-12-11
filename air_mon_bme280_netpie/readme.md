@@ -8,4 +8,5 @@
 ![My Image](../pics/schema.png)
 <p/> copy the file in schema.txt and then click on schema in netpie and select code then add the schema in it.
 
-## Using freeboard
+## They don't have library pms for esp8266 So i create it by myself
+<p/> Idea is from http://hpclab.blogspot.com/2020/02/esp8266-based-air-quality-monitoring.html then i convert it into cpp and header file.
