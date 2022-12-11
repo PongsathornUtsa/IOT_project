@@ -39,7 +39,7 @@
 3. password=     # Specify Client password String from Netpie2020  
 4. saveConfig          # Save the data to EEPROM                         
 
-## Wifi Portal (hold rst button for 5 seconds)
+## Wifi Portal (hold FLASH button for 5 seconds)
 ![My Image](pics/wifi_portal.jpg)
 <p/> after you click save button the data will be save. the board will connect to Wi-fi automatically everytime the board start.
 
