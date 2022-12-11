@@ -102,10 +102,11 @@ TaskHandle_t Task1 = NULL;
 
 void Task1_code(void* parameter) {  //core 0
   for (;;) {
+    pms.read(data);
     pm1 = data.PM_AE_UG_1_0;
     pm2_5 = data.PM_AE_UG_2_5;
     pm10 = data.PM_AE_UG_10_0;
-    vTaskDelay(10);
+    vTaskDelay(5);
   }
   vTaskDelete(NULL);
 }
@@ -226,7 +227,6 @@ void loop() {
     }
   }
   InputCommand();
-  pms.read(data);
   delay(5);
 }
 
