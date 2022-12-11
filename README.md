@@ -12,6 +12,7 @@
 1. Monitoring Temperature, Humidity, Pressure, PM1, PM2.5, and PM10
 2. Use Netpie IOT cloud platform, Netpie freeboard
 3. Commands for EEPROM, Wi-fi, MQTT, OLED
+4. FreeRTOS on esp32
 
 ## Hardware & Sodtware
 ### Hardware
