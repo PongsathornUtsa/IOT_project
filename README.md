@@ -16,6 +16,7 @@
 5. Create pms7003 header,cpp for esp8266
 6. Turn on/off BUILTIN_LED and reset esp8266 from netpie freeboard
 7. Able to set the send data period through netpie freeboard
+8. ky037 sound sensor -> FFT(not done)
 
 ## Hardware & Sodtware
 ### Hardware
