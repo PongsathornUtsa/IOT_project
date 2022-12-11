@@ -45,7 +45,7 @@
 
 ## Wifi Portal (hold FLASH button for 5 seconds)
 ![My Image](pics/wifi_portal.jpg)
-<p/> after you click save button the data will be save. the board will connect to Wi-fi automatically everytime the board start.
+<p/> after you click save button the data will be save. the board will connect to Wi-fi automatically everytime the board start. the wifi credential need to set through this portal but for mqtt is optional becasue i create the command to set mqtt through serial port.
 
 ## OLED
 ![My Image](pics/oled_mode.jpg)
