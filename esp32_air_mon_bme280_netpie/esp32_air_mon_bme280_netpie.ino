@@ -109,6 +109,16 @@ void Task1_code(void* parameter) {  //core 0
   vTaskDelete(NULL);
 }
 
+TaskHandle_t Task2 = NULL;
+
+void Task2_code(void* parameter) {  //core 0
+  for (;;) {
+    oledDisplay(temp, pres, hum, pressed);
+    vTaskDelay(1000);
+  }
+  vTaskDelete(NULL);
+}
+
 void freertos_init(void) {
   xTaskCreatePinnedToCore(Task0_code, "bme280", 10000, NULL, 3, &Task0, 0);
   xTaskCreatePinnedToCore(Task1_code, "pms7003", 10000, NULL, 2, &Task1, 0);
