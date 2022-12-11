@@ -110,9 +110,9 @@ void Task1_code(void* parameter) {  //core 0
 }
 
 void freertos_init(void) {
-  xTaskCreatePinnedToCore(Task0_code, "bme280", 10000, NULL, 3, &Task0, 1);
-  xTaskCreatePinnedToCore(Task1_code, "pms7003", 10000, NULL, 2, &Task1, 1);
-  xTaskCreatePinnedToCore(Task2_code, "oled", 10000, NULL, 1, &Task2, 1);
+  xTaskCreatePinnedToCore(Task0_code, "bme280", 10000, NULL, 3, &Task0, 0);
+  xTaskCreatePinnedToCore(Task1_code, "pms7003", 10000, NULL, 2, &Task1, 0);
+  xTaskCreatePinnedToCore(Task2_code, "oled", 10000, NULL, 1, &Task2, 0);
 }
 
 void setup() {
