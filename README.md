@@ -14,6 +14,7 @@
 3. Commands for EEPROM, Wi-fi, MQTT, OLED
 4. Multitsaking with FreeRTOS on esp32
 5. Create pms7003 header,cpp for esp8266
+6. Turn on/off BUILTIN_LED from netpie
 
 ## Hardware & Sodtware
 ### Hardware
