@@ -41,3 +41,11 @@
 ## Wifi Portal (hold rst button for 5 seconds)
 ![My Image](pics/wifi_portal.jpg)
 <p/> after you click save button the data will be save. the board will connect to Wi-fi automatically everytime the board start.
+
+## OLED
+![My Image](pics/oled_mode.jpg)
+
+1. oled will turn off every 1 min
+2. push the button to turn it on again
+3. push the button will change the mode of oled
+4. push the button more than 5 second will turn on Wi-Fi portal
